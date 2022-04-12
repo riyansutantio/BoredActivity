@@ -38,44 +38,47 @@ class HomePage extends StatelessWidget {
             );
           }
           if (state is HomeLoadedState) {
-            return Center(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    state.activityName,
-                    style: const TextStyle(
-                        fontSize: 30, fontWeight: FontWeight.w500),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                    state.activityType,
-                    style: const TextStyle(fontSize: 25, color: Colors.blue),
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                    "Atleast " + state.participants.toString() + " Person",
-                    style: const TextStyle(
-                        fontSize: 30, fontWeight: FontWeight.w300),
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  ElevatedButton(
-                    onPressed: () =>
-                        BlocProvider.of<HomeBloc>(context).add(LoadApiEvent()),
-                    child: const Text(
-                      "Next Activity",
-                      style: TextStyle(fontSize: 25),
+            return Container(
+              padding: const EdgeInsets.all(10),
+              child: Center(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      state.activityName,
+                      style: const TextStyle(
+                          fontSize: 30, fontWeight: FontWeight.w500),
+                      textAlign: TextAlign.center,
                     ),
-                  ),
-                ],
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      state.activityType,
+                      style: const TextStyle(fontSize: 25, color: Colors.blue),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      "Atleast " + state.participants.toString() + " Person",
+                      style: const TextStyle(
+                          fontSize: 30, fontWeight: FontWeight.w300),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    ElevatedButton(
+                      onPressed: () => BlocProvider.of<HomeBloc>(context)
+                          .add(LoadApiEvent()),
+                      child: const Text(
+                        "Next Activity",
+                        style: TextStyle(fontSize: 25),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             );
           }
